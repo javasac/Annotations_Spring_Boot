@@ -1,4 +1,5 @@
 package com.sachin.Annotations;
+import com.sachin.Annotations.ConditionalOnProperty.DBConnection;
 import com.sachin.Annotations.Controller.MyController;
 import com.sachin.Annotations.Controller.PizzaController;
 import com.sachin.Annotations.Lazy.LazyLoader;
@@ -12,16 +13,20 @@ import com.sachin.Annotations.value.ValueAnnotationDemo;
 import com.sun.jdi.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
+@EnableAspectJAutoProxy
 public class AnnotationsApplication
 {
 	public static void main(String[] args)
 	{
 		var context = SpringApplication.run(AnnotationsApplication.class, args);
 
-		PropertySourceDemo psd = context.getBean(PropertySourceDemo.class);
-		System.out.println(psd.getEmail() + "==" + psd.getHost()+ "==" + psd.getPassword() + "==" + psd.getAppName() + "==" + psd.getAppDesc());
+		//DBConnection dbConnection;
+
+		//PropertySourceDemo psd = context.getBean(PropertySourceDemo.class);
+		//System.out.println(psd.getEmail() + "==" + psd.getHost()+ "==" + psd.getPassword() + "==" + psd.getAppName() + "==" + psd.getAppDesc());
 
 	/*	ValueAnnotationDemo vd = context.getBean(ValueAnnotationDemo.class);
 		System.out.println(vd.getDefaultName() + "=" + vd.getHost() + "=" + vd.getEmail() + "=" + vd.getSecret());

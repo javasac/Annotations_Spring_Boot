@@ -6,6 +6,7 @@ public class MyService
 {
     public String hello()
     {
+        System.out.println("Hello MyService");
         return "Hello MyService";
     }
 }
