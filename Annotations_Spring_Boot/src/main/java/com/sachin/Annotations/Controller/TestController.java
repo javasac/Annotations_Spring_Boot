@@ -42,13 +42,6 @@ public class TestController
         }
     }*/
 
-    @GetMapping("/hello")
-    public String hello()
-    {
-        myService.hello();
-        return "Hello World !!";
-    }
-
     @GetMapping("/name")
     public String name()
     {
