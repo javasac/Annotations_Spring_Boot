@@ -10,7 +10,10 @@ import java.lang.annotation.Target;
 public @interface SKAnnotation
 {
     int intKey() default 0;
+
     String stringKey() default "defaulString";
+
     Class <?> classTypeKey() default String.class;
+
     String[] stringArrayKey() default {"default1", "default2"};
 }

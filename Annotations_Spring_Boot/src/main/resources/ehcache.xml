@@ -1,8 +1,7 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:noNamespaceschemalocation="http://www.ehcache.org/ehcache.xsd">
 
-    <cache alias="countryCache" maxElementsInMemory="100" timeToLiveSeconds="60000" evictionStrategy="LIFO" />
-
-    <!--<cache alias="cityCache" maxElementsInMemory="1000" timeToLiveSeconds="200" evictionStrategy="FIFO" />-->
+    <cache alias="countryCache" maxElementsInMemory="1000" timeToLiveSeconds="60000" evictionStrategy="LIFO" />
+    <cache alias="cityCache" maxElementsInMemory="1000" timeToLiveSeconds="20000" evictionStrategy="FIFO" />
 
 </ehcache>

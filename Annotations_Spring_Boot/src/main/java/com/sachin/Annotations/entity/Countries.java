@@ -1,21 +1,44 @@
 package com.sachin.Annotations.entity;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table
-@Cache(usage= CacheConcurrencyStrategy.READ_WRITE, region="countryCache")
+@Table(schema="world", name="countries",
+        uniqueConstraints = {@UniqueConstraint(columnNames = "name")},
+        indexes = {@Index(name = "Code_IDX", columnList = "Code, name")}
+)
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region="countryCache")
+//@IdClass(CK_Countries.class)
 public class Countries
 {
     @Id
     private String Code;
     private String name;
+
+    //@EmbeddedId
+    //CK_Countries ck;
+    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "desh_seq")
+    //@SequenceGenerator(name="desh_seq", sequenceName="country_seq", initialValue = 1, allocationSize = 100)
+
     private String continent;
     private String region;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<City> cities = new ArrayList<>();
+
+    public List<City> getCities()
+    {
+        return cities;
+    }
+
+    public void setCities(List<City> cities)
+    {
+        this.cities = cities;
+    }
 
     public String getCode()
     {
